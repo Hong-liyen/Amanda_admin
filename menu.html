@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>後台-選單管理</title>
+</head>
+<body>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <span class="icon"><i class="fa-solid fa-house"></i></span>
+                    <span class="title">首頁</span>
+                </a>
+            </li>
+            <li>
+                <a href="user.html">
+                    <span class="icon"><i class="fa-solid fa-bars-progress"></i></span>
+                    <span class="title">個人資料</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="menu.html">
+                    <span class="icon"><i class="fa-brands fa-elementor"></i></span>
+                    <span class="title">選單管理</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-layer-group"></i></span>
+                    <span class="title">文章分類</span>
+                </a>
+            </li>
+            <li>
+                <a href="article.html">
+                    <span class="icon"><i class="fa-solid fa-scroll"></i></span>
+                    <span class="title">文章管理</span>
+                </a>
+            </li>
+            <li>
+                <a href="social.html">
+                    <span class="icon"><i class="fa-solid fa-star"></i></span>
+                    <span class="title">社群管理</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                    <span class="title">登出</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="user">
+                <img src="https://picsum.photos/40/40?random=2">
+            </div>
+        </div>
+        <div class="contain p-4">
+            <nav aria-label="breadcrumb mb-3">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">選單管理</li>
+                </ol>
+            </nav>
+            <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-primary btn-md" onclick="editaddbox()">新增</button>
+            </div>
+
+            <h4 class="mt-3">選單管理</h4>
+            <table class="table">
+                <thead class="table-dark">
+                    <td>主要選單</td>
+                    <td>子選單</td>
+                    <td>操作</td>
+                </thead>
+                <tbody>
+                    <td>台中美食</td>
+                    <td>                              
+                       <button type="button" class="btn btn-success btn-sm">牛排館</button>
+                       <button type="button" class="btn btn-success btn-sm">火鍋館</button>
+                       <button type="button" class="btn btn-success btn-sm">咖啡店</button>
+                       <button type="button" class="btn btn-success btn-sm">早午餐</button>
+                    </td>
+                    <td><button type="button" class="btn btn-sm btn-secondary" onclick="editaddbox()">編輯</button><button type="button" class="btn btn-sm btn-danger" onclick="deletebox()">刪除</button></td>
+                </tbody>
+                <tbody>
+                    <td>宅配商品</td>
+                    <td></td>
+                    <td><button type="button" class="btn btn-sm btn-secondary" onclick="editaddbox()">編輯</button><button type="button" class="btn btn-sm btn-danger" onclick="deletebox()">刪除</button></td>
+                </tbody>
+                <tbody>
+                    <td>采耳體驗</td>
+                    <td></td>
+                    <td><button type="button" class="btn btn-sm btn-secondary" onclick="editaddbox()">編輯</button><button type="button" class="btn btn-sm btn-danger" onclick="deletebox()">刪除</button></td>
+                </tbody>
+                <tbody>
+                    <td>按摩體驗</td>
+                    <td></td>
+                    <td><button type="button" class="btn btn-sm btn-secondary" onclick="editaddbox()">編輯</button><button type="button" class="btn btn-sm btn-danger" onclick="deletebox()">刪除</button></td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="model delete_model">
+        <div class="deletebox rounded shadow-lg bg-white text-center">
+            <div class="rounded-top bg-light text-center p-2">
+                <div class="text-secondary fw-bolder">刪除</div>
+            </div>
+            <div class="p-3">
+                <div>確認刪除此筆內容?</div>
+                <div class="mt-3">
+                    <button type="button" class="btn btn-secondary" onclick="cancel()">取消</button>
+                    <button type="button" class="btn btn-primary mt-2 mt-md-0" onclick="confirm()">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="model edit_add_model">
+        <div class="edit_add_box rounded shadow-lg bg-white">
+            <div class="rounded-top bg-light text-center p-2">
+                <div class="text-secondary fw-bolder">編輯/新增</div>
+            </div>
+            <div class="p-3">
+                <div class="mt-2">
+                    <label for="exampleFormControlInput1" class="form-label">主要選單</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="請輸入您的主要選單">    
+                </div>
+                <div class="mt-2">
+                    <label for="exampleFormControlInput1" class="form-label">子選單</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="請輸入您的子選單">
+                    <div class="mt-2">
+                        <button type="button" class="btn btn-success btn-sm">牛排館<i class="fa-solid fa-circle-xmark mx-1"></i></button>
+                        <button type="button" class="btn btn-success btn-sm">火鍋館<i class="fa-solid fa-circle-xmark mx-1"></i></button>
+                        <button type="button" class="btn btn-success btn-sm">咖啡店<i class="fa-solid fa-circle-xmark mx-1"></i></button>
+                        <button type="button" class="btn btn-success btn-sm">早午餐<i class="fa-solid fa-circle-xmark mx-1"></i></button>
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <button type="button" class="btn btn-secondary" onclick="cancel()">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="confirm()">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
