@@ -146,8 +146,18 @@ td{
 .close{
     display: none;
 }
+.login{
+    background-color: rgb(68, 109, 192);
+}
+.login .wrapper{
+    background-color: #fff;
+    margin: 50px auto;
+}
 @media screen and (max-width: 767px) {
     .table .btn-sm:nth-child(2){
         margin-left: 0;
+    }
+    .wrapper{
+        width: 100%;
     }
 }
